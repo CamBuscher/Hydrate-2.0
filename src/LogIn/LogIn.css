@@ -23,3 +23,23 @@
   width: 400px;
   height: 30px;
 }
+
+.LogIn button {
+  transition: all 0.3s ease;
+  border: 2px solid #00A7E1;
+  border-radius: 5rem;
+  color: #00A7E1;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.LogIn button:hover {
+  background: #00A7E1;
+  color: white;
+  cursor: pointer;
+}
