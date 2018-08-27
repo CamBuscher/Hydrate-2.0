@@ -13,7 +13,7 @@ class LogIn extends Component {
   render() {
     return(
       <div className='LogIn'>
-        <h2>Please enter your account's API key</h2>
+        <h2>Please enter your account's API key to see your devices</h2>
         <p><a href='' target='_blank'>I can't find my API key</a></p>
       </div>
     )
