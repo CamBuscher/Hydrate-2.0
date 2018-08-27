@@ -8,6 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <img src='/Logo.png' className='logo'/>
         <LogIn />
       </div>
     );
