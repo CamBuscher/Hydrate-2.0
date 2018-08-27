@@ -1,0 +1,15 @@
+.LogIn {
+  width: 600px;
+  height: 200px;
+  margin: 200px auto;
+  text-align: center;
+}
+
+.LogIn h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.LogIn a {
+  text-decoration: none;
+}
