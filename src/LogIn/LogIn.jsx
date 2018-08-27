@@ -22,7 +22,7 @@ class LogIn extends Component {
     return(
       <div className='LogIn'>
         <h2>Please enter your account's API key to see your devices</h2>
-        <p><a href='' target='_blank'>I can't find my API key</a></p>
+        <p><a href='' target='_blank'>Can't find your API key?</a></p>
         <input type="text" value={this.state.key} name='key' onChange={this.handleChange}/>
       </div>
     )

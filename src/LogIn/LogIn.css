@@ -6,8 +6,10 @@
 }
 
 .LogIn h2 {
-  font-size: 24px;
+  font-size: 40px;
   margin-bottom: 10px;
+  color: #00A7E1;
+  font-weight: bold;
 }
 
 .LogIn a {
