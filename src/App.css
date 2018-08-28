@@ -48,3 +48,9 @@ table {
 	display: block;
 	margin: 20px;
 }
+
+.loading_gif {
+	margin: 150px auto;
+	width: 400px;
+	display: block;
+}

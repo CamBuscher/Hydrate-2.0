@@ -22,7 +22,7 @@ class App extends Component {
       headers: {Authorization: 'Bearer 76980330-8f0b-4659-a341-527364acf134'}
     })
       .then(response => response.json())
-      .then(userID => this.setState({ loading: false, userID }))
+      // .then(userID => this.setState({ loading: false, userID }))
   }
 
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
       const {loading, userID} = this.state;
 
       if (loading) {
-        return <img src='/Eclipse.gif' />
+        return <img src='/Eclipse.gif' className='loading_gif'/>
       } else if (userID) {
         console.log(userID)
         return <LogIn getID={this.getID} />
