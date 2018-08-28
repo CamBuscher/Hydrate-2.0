@@ -1,0 +1,47 @@
+.LogIn {
+  width: 600px;
+  height: 200px;
+  margin: 150px auto;
+  text-align: center;
+}
+
+.LogIn h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #00A7E1;
+  font-weight: bold;
+}
+
+.LogIn a {
+  text-decoration: none;
+}
+
+.LogIn input {
+  border: 2px solid #00A7E1;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px;
+  padding: 5px;
+  width: 425px;
+  height: 30px;
+}
+
+.LogIn button {
+  transition: all 0.3s ease;
+  border: 2px solid #00A7E1;
+  border-radius: 5rem;
+  color: #00A7E1;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.LogIn button:hover {
+  background: #00A7E1;
+  color: white;
+  cursor: pointer;
+}
