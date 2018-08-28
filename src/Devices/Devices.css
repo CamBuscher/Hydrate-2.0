@@ -1,0 +1,13 @@
+.devices_header {
+  color: #00A7E1;
+  font-size: 28px;
+  text-decoration: underline;
+  margin: 0 0 20px 25px;
+}
+
+.devices_container {
+  max-width: 1000px;
+  min-width: 600px;
+  width: 80%;
+  margin: auto;
+}

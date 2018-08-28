@@ -42,7 +42,7 @@ class App extends Component {
       if (loading) {
         return <img src='/Eclipse.gif' className='loading_gif'/>
       } else if (user) {
-        return <Devices devices={user.devices} />
+        return <Devices userID={user.id} devices={user.devices} />
       } else {
         return <LogIn getID={this.getID} />
       }

@@ -1,0 +1,14 @@
+.device {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.device_name {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #00A7E1;
+  color: white;
+  font-size: 24px;
+  border-radius: 20px 20px 0px 0px ;
+  padding: 10px;
+}
