@@ -14,3 +14,5 @@ class Devices extends Component {
     )
   }
 }
+
+export default Devices;
