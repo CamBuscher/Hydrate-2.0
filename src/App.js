@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { hot } from "react-hot-loader";
 import "./App.css";
 
+import Devices from './Devices/Devices';
 import LogIn from './LogIn/LogIn';
 
 class App extends Component {
@@ -41,7 +41,7 @@ class App extends Component {
       if (loading) {
         return <img src='/Eclipse.gif' className='loading_gif'/>
       } else if (user) {
-        return <LogIn getID={this.getID} />
+        return <Devices devices={user.devices} />
       } else {
         return <LogIn getID={this.getID} />
       }

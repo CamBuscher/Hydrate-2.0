@@ -6,10 +6,14 @@ class Devices extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    console.log(this.props)
+  }
+
   render() {
     return (
       <div>
-        {this.props.devices.map(device => <img src={device.imageUrl} />)}
+        {this.props.devices.map(device => <p>{device.model}</p>)}
       </div>
     )
   }
