@@ -10,7 +10,8 @@ class App extends Component {
 
     this.state = {
       loading: false,
-      userID: null
+      userID: null,
+      user: null
     }
 
     this.getID = this.getID.bind(this);
@@ -19,20 +20,28 @@ class App extends Component {
   getID(apiKey) {
     this.setState({ loading: true })
     fetch('https://api.rach.io/1/public/person/info', {
-      headers: {Authorization: 'Bearer 76980330-8f0b-4659-a341-527364acf134'}
+      headers: {Authorization: `Bearer ${apiKey}`}
     })
       .then(response => response.json())
-      // .then(userID => this.setState({ loading: false, userID }))
+      .then(userID => {
+        fetch(`https://api.rach.io/1/public/person/${userID.id}`, {
+          headers: { Authorization: `Bearer ${apiKey}` }
+        })
+          .then(response => response.json())
+          .then(user => {
+            this.setState({ loading: false, user})
+          })
+      })
   }
 
   render() {
     const rendered = () => {
-      const {loading, userID} = this.state;
+      const {loading, user} = this.state;
 
       if (loading) {
         return <img src='/Eclipse.gif' className='loading_gif'/>
-      } else if (userID) {
-        console.log(userID)
+      } else if (user) {
+        console.log(user)
         return <LogIn getID={this.getID} />
       } else {
         return <LogIn getID={this.getID} />
