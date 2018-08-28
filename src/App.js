@@ -41,7 +41,6 @@ class App extends Component {
       if (loading) {
         return <img src='/Eclipse.gif' className='loading_gif'/>
       } else if (user) {
-        console.log(user)
         return <LogIn getID={this.getID} />
       } else {
         return <LogIn getID={this.getID} />
