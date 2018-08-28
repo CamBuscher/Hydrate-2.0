@@ -13,6 +13,7 @@ class Devices extends Component {
   render() {
     return (
       <div>
+        <h2 className='devices_header'>Your devices</h2>
         {this.props.devices.map(device => <p>{device.model}</p>)}
       </div>
     )

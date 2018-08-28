@@ -24,6 +24,7 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(userID => {
+        this.setState({ userID })
         fetch(`https://api.rach.io/1/public/person/${userID.id}`, {
           headers: { Authorization: `Bearer ${apiKey}` }
         })
