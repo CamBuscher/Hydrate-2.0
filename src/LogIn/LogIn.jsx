@@ -6,7 +6,7 @@ class LogIn extends Component {
     super(props)
 
     this.state = {
-      key: ''
+      key: '76980330-8f0b-4659-a341-527364acf134'
     }
 
     this.handleChange = this.handleChange.bind(this)
