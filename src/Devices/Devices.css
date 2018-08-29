@@ -2,7 +2,8 @@
   color: #00A7E1;
   font-size: 28px;
   text-decoration: underline;
-  margin: 0 0 20px 25px;
+  width: 800px;
+  margin: auto;
 }
 
 .devices_container {
