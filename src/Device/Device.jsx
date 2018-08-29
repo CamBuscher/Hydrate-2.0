@@ -110,7 +110,9 @@ export default class Device extends Component {
 
     return(
       <div className='device'>
-        <div className='device_name'>{device.name}</div>
+        <div className='device_name'>
+          <h2>{device.name}</h2>
+        </div>
         {renderZones()}
       </div>
     )
