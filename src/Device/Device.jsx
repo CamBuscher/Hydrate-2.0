@@ -14,10 +14,20 @@ export default class Device extends Component {
         return acc
       }, {})
     }
+
+    this.updateZoneRuntime = this.updateZoneRuntime.bind(this);
   }
 
-  updateZoneRuntime(zoneID) {
+  updateZoneRuntime(e, zoneID) {
+    const { value } = e.target;
+    const { zones } = this.state;
 
+    const newZones = Object.assign({}, zones)
+    newZones[zoneID].runtime = parseInt(value);
+
+    this.setState({
+      zones: newZones
+    })
   }
 
   render() {
@@ -37,6 +47,7 @@ export default class Device extends Component {
                     data-zone-id={zone.id} 
                     type='number' 
                     value={this.state.zones[zone.id].runtime} 
+                    onChange={(e) => this.updateZoneRuntime(e, zone.id)}
                   /> <span> minutes </span>
                   <button className='zone_run'>Run zone</button> 
                 </div>
