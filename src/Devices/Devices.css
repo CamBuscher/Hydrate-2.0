@@ -1,0 +1,6 @@
+.devices_container {
+  max-width: 1200px;
+  min-width: 600px;
+  width: 80%;
+  margin: auto;
+}
