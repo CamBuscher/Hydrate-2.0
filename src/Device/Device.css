@@ -38,6 +38,10 @@
   margin-top: 15px;
 }
 
+.zone_controls input {
+  width: 40px;
+}
+
 .zone_run {
   transition: all 0.3s ease;
   border: 2px solid #00A7E1;
