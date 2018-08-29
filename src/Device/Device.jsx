@@ -19,12 +19,12 @@ export default class Device extends Component {
   }
 
   updateZoneRuntime(e, zoneID) {
-    const { value } = e.target;
+    let { value } = e.target;
     const { zones } = this.state;
 
     if (value > 180) {
       value = 180
-    } else if ( value < 0) {
+    } else if (value < 0) {
       value = 0
     }
 
@@ -35,8 +35,6 @@ export default class Device extends Component {
       zones: newZones
     })
   }
-
-
 
   render() {
     const {device} = this.props;
