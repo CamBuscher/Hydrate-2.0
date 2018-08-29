@@ -18,12 +18,19 @@ export default class Device extends Component {
         return (
           <div className='device_zone'>
             <img src={zone.imageUrl} alt={`Image of ${zone.name}`} className='zone_image'/>
-            <div className='zone_controls'>
-              <h4 className='zone_name'>{zone.name}</h4>
-              <span>Runtime: </span> 
-              <input name="minutes" type='number' value={0} /><span> Minutes </span>
-              <button className='zone_run'>Run zone</button>
-            </div>
+            {
+              zone.enabled ? 
+                <div className='zone_controls'>
+                  <h4 className='zone_name'>{zone.name}</h4>
+                  <span>Runtime: </span>
+                  <input name="minutes" type='number' value={0} /> <span> Minutes </span>
+                  <button className='zone_run'>Run zone</button> 
+                </div>
+                : 
+                <div className='zone_controls'>
+                  <button className='zone_disabled'>Zone is disabled</button>
+                </div>
+            }
           </div>
         )
       })
