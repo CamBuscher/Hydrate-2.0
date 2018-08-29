@@ -10,7 +10,7 @@ export default class Device extends Component {
         acc[zone.id] = {
           enabled: zone.enabled,
           runtime: Math.round(zone.runtime / 60),
-          started: false
+          running: false
         }
         return acc
       }, {})
