@@ -23,7 +23,7 @@ export default class Device extends Component {
                 <div className='zone_controls'>
                   <h4 className='zone_name'>{zone.name}</h4>
                   <span>Runtime: </span>
-                  <input name="minutes" type='number' value={0} /> <span> Minutes </span>
+                  <input data-id={zone.id} type='number' value={} /> <span> Minutes </span>
                   <button className='zone_run'>Run zone</button> 
                 </div>
                 : 
