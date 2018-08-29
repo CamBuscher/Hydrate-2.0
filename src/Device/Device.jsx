@@ -16,6 +16,7 @@ export default class Device extends Component {
     }
 
     this.updateZoneRuntime = this.updateZoneRuntime.bind(this);
+    this.runSingleZone = this.runSingleZone.bind(this);
   }
 
   updateZoneRuntime(e, zoneID) {
@@ -34,6 +35,28 @@ export default class Device extends Component {
     this.setState({
       zones: newZones
     })
+  }
+
+  runSingleZone(e, zoneID) {
+    e.preventDefault();
+
+    const body = JSON.stringify({
+      id: zoneID,
+      duration: this.state.zones[zoneID].runtime
+    })
+
+    try {
+      fetch('https://api.rach.io/1/public/zone/start', {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${this.props.apiKey}`
+        },
+        body
+      })
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   render() {

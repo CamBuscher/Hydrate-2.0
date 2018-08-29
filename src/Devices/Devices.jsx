@@ -12,7 +12,7 @@ class Devices extends Component {
     return (
       <div>
         <div className='devices_container'>
-          {this.props.devices.map(device => <Device device={device} />)}
+          {this.props.devices.map(device => <Device device={device} apiKey={this.props.apiKey} />)}
         </div>
       </div>
     )

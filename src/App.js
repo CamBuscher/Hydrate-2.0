@@ -11,14 +11,15 @@ class App extends Component {
     this.state = {
       loading: false,
       userID: null,
-      user: null
+      user: null,
+      apiKey: null
     }
 
     this.getID = this.getID.bind(this);
   }
 
   getID(apiKey) {
-    this.setState({ loading: true })
+    this.setState({ loading: true, apiKey })
     fetch('https://api.rach.io/1/public/person/info', {
       headers: {Authorization: `Bearer ${apiKey}`}
     })
@@ -42,7 +43,7 @@ class App extends Component {
       if (loading) {
         return <img src='/Eclipse.gif' className='loading_gif'/>
       } else if (user) {
-        return <Devices userID={user.id} devices={user.devices} />
+        return <Devices userID={user.id} devices={user.devices} apiKey={this.state.apiKey} />
       } else {
         return <LogIn getID={this.getID} />
       }
