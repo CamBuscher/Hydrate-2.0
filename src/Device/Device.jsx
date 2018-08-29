@@ -10,14 +10,17 @@ export default class Device extends Component {
         acc[zone.id] = {
           enabled: zone.enabled,
           runtime: Math.round(zone.runtime / 60),
+          id: zone.id,
           running: false
         }
         return acc
-      }, {})
+      }, {}),
+      allRunning: false
     }
 
     this.updateZoneRuntime = this.updateZoneRuntime.bind(this);
     this.runSingleZone = this.runSingleZone.bind(this);
+    this.runAllZones = this.runAllZones.bind(this);
   }
 
   updateZoneRuntime(e, zoneID) {
@@ -43,7 +46,7 @@ export default class Device extends Component {
 
     const body = JSON.stringify({
       id: zoneID,
-      duration: this.state.zones[zoneID].runtime
+      duration: this.state.zones[zoneID].runtime * 60
     })
 
     try {
@@ -64,6 +67,44 @@ export default class Device extends Component {
         this.setState({ zones: newZones})
       })
     } catch(error) {
+      console.log(error)
+    }
+  }
+
+  runAllZones() {
+    const body = JSON.stringify({
+      zones: Object.values(this.state.zones).reduce((acc, zone, index) => {
+        const {enabled, id, runtime} = zone
+        if (enabled) {
+          acc.push({
+            id,
+            duration: runtime,
+            sortOrder: index
+          })
+        }
+        return acc
+      }, [])
+    })
+    
+    try {
+      fetch('https://api.rach.io/1/public/zone/start_multiple', {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${this.props.apiKey}`
+        },
+        body
+      })
+        .then(() => {
+          const { zones } = this.state;
+
+          const newZones = Object.assign({}, zones)
+          
+          Object.keys(newZones).forEach(zone => newZones[zone].running = true)
+
+          this.setState({ zones: newZones, allRunning: true })
+        })
+    } catch (error) {
       console.log(error)
     }
   }
@@ -110,7 +151,18 @@ export default class Device extends Component {
 
     return(
       <div className='device'>
-        <div className='device_name'>{device.name}</div>
+        <div className='device_name'>
+          <h2>{device.name}</h2>
+          {
+            this.state.allRunning ? 
+              <button className='zone__all_running'>All zones running</button>
+              :
+              <button 
+                className='zone__run_all'
+                onClick={this.runAllZones}
+              >Run all zones</button>
+          } 
+        </div>
         {renderZones()}
       </div>
     )
