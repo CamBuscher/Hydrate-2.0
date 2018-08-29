@@ -13,7 +13,8 @@ export default class Device extends Component {
           running: false
         }
         return acc
-      }, {})
+      }, {}),
+      allRunning: false
     }
 
     this.updateZoneRuntime = this.updateZoneRuntime.bind(this);
@@ -112,7 +113,12 @@ export default class Device extends Component {
       <div className='device'>
         <div className='device_name'>
           <h2>{device.name}</h2>
-          <button className='zone__run_all'>Run all zones</button>
+          {
+            this.state.allRunning ? 
+              <button className='zone__all_running'>All zones running</button>
+              :
+              <button className='zone__run_all'>Run all zones</button>
+          } 
         </div>
         {renderZones()}
       </div>
