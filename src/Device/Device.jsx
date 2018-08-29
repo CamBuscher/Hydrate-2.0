@@ -43,7 +43,7 @@ export default class Device extends Component {
 
     const body = JSON.stringify({
       id: zoneID,
-      duration: this.state.zones[zoneID].runtime
+      duration: this.state.zones[zoneID].runtime * 60
     })
 
     try {
