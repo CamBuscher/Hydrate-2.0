@@ -32,6 +32,7 @@ class LogIn extends Component {
         <input type="text" value={this.state.key} name='key' onChange={this.handleChange}/>
         <button onClick={(e) => this.handleSubmit(e)}>Log In</button>
         <p><a href='https://rachio.readme.io/docs/authentication' target='_blank'>Can't find your API key?</a></p>
+        <h3>{this.props.loadingError}</h3>
       </div>
     )
   }
