@@ -160,6 +160,7 @@ export default class Device extends Component {
               <button 
                 className='zone__run_all'
                 onClick={this.runAllZones}
+                title='This will run all zones for this device, for the amount of time specified in each input field below'
               >Run all zones</button>
           } 
         </div>
