@@ -86,7 +86,27 @@ export default class Device extends Component {
       }, [])
     })
     
-    
+    try {
+      fetch('https://api.rach.io/1/public/zone/start_multiple', {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${this.props.apiKey}`
+        },
+        body
+      })
+        .then(() => {
+          const { zones } = this.state;
+
+          const newZones = Object.assign({}, zones)
+          
+          Object.keys(newZones).forEach(zone => newZones[zone].running = true)
+
+          this.setState({ zones: newZones, allRunning: true })
+        })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   render() {
