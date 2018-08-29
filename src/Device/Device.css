@@ -73,3 +73,15 @@
   display: block;
   margin: 10px auto;
 }
+
+.zone_run__running {
+  border: 2px solid rgb(0, 225, 75);
+  background-color: rgb(0, 225, 75);
+  border-radius: 5rem;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0px 20px;
+}

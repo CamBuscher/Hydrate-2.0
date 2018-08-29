@@ -9,7 +9,8 @@ export default class Device extends Component {
       zones: this.props.device.zones.reduce((acc, zone) => {
         acc[zone.id] = {
           enabled: zone.enabled,
-          runtime: Math.round(zone.runtime / 60)
+          runtime: Math.round(zone.runtime / 60),
+          started: false
         }
         return acc
       }, {})
@@ -54,6 +55,14 @@ export default class Device extends Component {
         },
         body
       })
+      .then(() => {
+        const { zones } = this.state;
+
+        const newZones = Object.assign({}, zones)
+        newZones[zoneID].running = true
+
+        this.setState({ zones: newZones})
+      })
     } catch(error) {
       console.log(error)
     }
@@ -78,7 +87,15 @@ export default class Device extends Component {
                     value={this.state.zones[zone.id].runtime} 
                     onChange={(e) => this.updateZoneRuntime(e, zone.id)}
                   /> <span> minutes </span>
-                  <button className='zone_run'>Run zone</button> 
+                  {
+                    !this.state.zones[zone.id].running ? 
+                      <button 
+                        className='zone_run'
+                        onClick={e => this.runSingleZone(e, zone.id)}  
+                      >Run zone</button>
+                      :
+                      <button className='zone_run__running'>Zone running</button>
+                  }
                 </div>
                 : 
                 <div className='zone_controls'>
