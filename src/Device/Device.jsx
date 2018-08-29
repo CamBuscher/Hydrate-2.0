@@ -22,6 +22,12 @@ export default class Device extends Component {
     const { value } = e.target;
     const { zones } = this.state;
 
+    if (value > 180) {
+      value = 180
+    } else if ( value < 0) {
+      value = 0
+    }
+
     const newZones = Object.assign({}, zones)
     newZones[zoneID].runtime = parseInt(value);
 
@@ -29,6 +35,8 @@ export default class Device extends Component {
       zones: newZones
     })
   }
+
+
 
   render() {
     const {device} = this.props;
