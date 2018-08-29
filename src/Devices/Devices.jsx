@@ -11,7 +11,6 @@ class Devices extends Component {
   render() {
     return (
       <div>
-        <h2 className='devices_header'>Your devices:</h2>
         <div className='devices_container'>
           {this.props.devices.map(device => <Device device={device} />)}
         </div>

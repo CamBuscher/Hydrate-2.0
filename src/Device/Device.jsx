@@ -28,6 +28,7 @@ export default class Device extends Component {
                 </div>
                 : 
                 <div className='zone_controls'>
+                  <h4 className='zone_name'>{zone.name}</h4>
                   <button className='zone_disabled'>Zone is disabled</button>
                 </div>
             }
