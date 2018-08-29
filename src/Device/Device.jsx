@@ -9,11 +9,15 @@ export default class Device extends Component {
       zones: this.props.device.zones.reduce((acc, zone) => {
         acc[zone.id] = {
           enabled: zone.enabled,
-          runtime: zone.runtime
+          runtime: Math.round(zone.runtime / 60)
         }
         return acc
       }, {})
     }
+  }
+
+  updateZoneRuntime(zoneID) {
+
   }
 
   render() {
@@ -32,7 +36,7 @@ export default class Device extends Component {
                   <input 
                     data-zone-id={zone.id} 
                     type='number' 
-                    value={Math.round(this.state.zones[zone.id].runtime / 60)} 
+                    value={this.state.zones[zone.id].runtime} 
                   /> <span> minutes </span>
                   <button className='zone_run'>Run zone</button> 
                 </div>
