@@ -6,7 +6,13 @@ export default class Device extends Component {
     super(props)
 
     this.state = {
-
+      zones: this.props.device.zones.reduce((acc, zone) => {
+        acc[zone.id] = {
+          enabled: zone.enabled,
+          runtime: zone.runtime
+        }
+        return acc
+      }, {})
     }
   }
 
@@ -23,7 +29,11 @@ export default class Device extends Component {
                 <div className='zone_controls'>
                   <h4 className='zone_name'>{zone.name}</h4>
                   <span>Runtime: </span>
-                  <input data-id={zone.id} type='number' value={0} /> <span> minutes </span>
+                  <input 
+                    data-zone-id={zone.id} 
+                    type='number' 
+                    value={Math.round(this.state.zones[zone.id].runtime / 60)} 
+                  /> <span> minutes </span>
                   <button className='zone_run'>Run zone</button> 
                 </div>
                 : 
