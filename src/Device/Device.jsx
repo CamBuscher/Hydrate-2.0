@@ -112,6 +112,7 @@ export default class Device extends Component {
       <div className='device'>
         <div className='device_name'>
           <h2>{device.name}</h2>
+          <button className='zone__run_all'>Run all zones</button>
         </div>
         {renderZones()}
       </div>
