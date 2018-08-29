@@ -22,7 +22,7 @@ Very simple. Clone down this repo, `NPM install`, `npm start`, visit localhost:3
 I know you don't want to install this, so I've included some gifs and a little bit about what's goin on, enjoy!
 
 ### Log In page
-Your simple log in page. I thought it'd be fun to have the option to use more API keys, just in case people love this _so much_ that they want to use it on their own sprinkler systems. If a user enters an invalid API key, a message will appear.
+Your simple log in page. I thought it'd be fun to have the option to use more API keys, just in case people love this _so much_ that they want to use it on their own sprinkler systems. If a user enters an invalid API key, a message will appear. For development and judging purposes, I included the company's provided key to their fake API as a default for logging in.
 [![Image from Gyazo](https://i.gyazo.com/6ee5ea66a7c455f00a51894c2af3d816.gif)](https://gyazo.com/6ee5ea66a7c455f00a51894c2af3d816)
 
 ---
