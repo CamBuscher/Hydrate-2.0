@@ -10,6 +10,7 @@ export default class Device extends Component {
         acc[zone.id] = {
           enabled: zone.enabled,
           runtime: Math.round(zone.runtime / 60),
+          id: zone.id,
           running: false
         }
         return acc
@@ -19,6 +20,7 @@ export default class Device extends Component {
 
     this.updateZoneRuntime = this.updateZoneRuntime.bind(this);
     this.runSingleZone = this.runSingleZone.bind(this);
+    this.runAllZones = this.runAllZones.bind(this);
   }
 
   updateZoneRuntime(e, zoneID) {
@@ -69,6 +71,24 @@ export default class Device extends Component {
     }
   }
 
+  runAllZones() {
+    const body = JSON.stringify({
+      zones: Object.values(this.state.zones).reduce((acc, zone, index) => {
+        const {enabled, id, runtime} = zone
+        if (enabled) {
+          acc.push({
+            id,
+            duration: runtime,
+            sortOrder: index
+          })
+        }
+        return acc
+      }, [])
+    })
+    
+    
+  }
+
   render() {
     const {device} = this.props;
 
@@ -117,7 +137,10 @@ export default class Device extends Component {
             this.state.allRunning ? 
               <button className='zone__all_running'>All zones running</button>
               :
-              <button className='zone__run_all'>Run all zones</button>
+              <button 
+                className='zone__run_all'
+                onClick={this.runAllZones}
+              >Run all zones</button>
           } 
         </div>
         {renderZones()}
